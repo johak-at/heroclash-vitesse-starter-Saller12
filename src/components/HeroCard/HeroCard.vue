@@ -1,16 +1,16 @@
 <script setup>
 const props = defineProps(['hero'])
-function showBiography() {
-  console.log('Image clicked')
-  alert('uwe')
-}
+const showBiography = ref(false)
 </script>
 
 <template>
+  <HeroModal
+    v-if="showBiography" @hideBiography="showBiography = false"
+  />
   <div grid class="card">
     <HeroImage
       :image-url="hero.images.md"
-      @showBiography="showBiography"
+      @showBiography="showBiography = true"
     />
     <HeroStats :name="hero.name" :stats="hero.powerstats" :alignment="hero.biography.alignment" />
   </div>

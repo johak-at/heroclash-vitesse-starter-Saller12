@@ -1,11 +1,12 @@
 <script setup>
 const props = defineProps(['hero'])
+
 const showBiography = ref(false)
 </script>
 
 <template>
   <HeroModal
-    v-if="showBiography" @hideBiography="showBiography = false"
+    v-if="showBiography" :name="hero.name" :appearance="hero.appearance" :biography="hero.biography" :connections="hero.connections" :work="hero.work" @hideBiography="showBiography = false"
   />
   <div grid class="card">
     <HeroImage
@@ -18,8 +19,8 @@ const showBiography = ref(false)
 
 <style scoped>
     .card{
-        width: 330px;
-        height:230px;
+      width: 330px;
+      heigth: 330px;
         grid-template-columns: 1fr 1.2fr;
     }
 </style>
